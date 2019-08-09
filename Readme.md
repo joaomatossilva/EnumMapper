@@ -2,7 +2,8 @@
 
 This is a tool to convert enums to other enums using the name instead of the value.
 
-It's just a fancy way of making a `Enum.Parse(typeof(TestEnum2), TestEnum1.First.ToString())`
+It's just a way of making a `Enum.Parse(typeof(TestEnum2), TestEnum1.First.ToString())`
+In a more fancy way of `TestEnum1.First.To<TestEnum2>()`.
 
 ## Benckmark
 
