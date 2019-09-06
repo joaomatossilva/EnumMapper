@@ -1,0 +1,15 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: build solution
+      run: dotnet build -c Release EnumMapper.sln
+    - name: test
+      run: dotnet test -c Release ./EnumMapper.Tests/EnumMapper.Tests.csproj --no-build
