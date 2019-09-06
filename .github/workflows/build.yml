@@ -19,3 +19,5 @@ jobs:
       run: dotnet build -c Release EnumMapper.sln -p:Version=$(cat /home/runner/work/EnumMapper/EnumMapper/version.txt)
     - name: test
       run: dotnet test -c Release ./EnumMapper.Tests/EnumMapper.Tests.csproj --no-build
+    - name: pack
+      run: dotnet pack -c Release ./EnumMapper/EnumMapper.csproj -p:PackageVersion=$(cat /home/runner/work/EnumMapper/EnumMapper/version.txt) --no-build
