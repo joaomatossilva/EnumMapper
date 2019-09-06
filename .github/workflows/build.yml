@@ -20,8 +20,8 @@ jobs:
     - name: test
       run: dotnet test -c Release ./EnumMapper.Tests/EnumMapper.Tests.csproj --no-build
     - name: pack
-      run: dotnet pack -c Release ./EnumMapper/EnumMapper.csproj -p:PackageVersion=$(cat /home/runner/work/EnumMapper/EnumMapper/version.txt) --no-build
+      run: dotnet pack -c Release ./EnumMapper/EnumMapper.csproj -p:PackageVersion=$(cat /home/runner/work/EnumMapper/EnumMapper/version.txt) --output /home/runner/work/EnumMapper/EnumMapper --no-build
     - name: push
       env:
         nugetApiKey: ${{ secrets.NugetApiKey }}
-      run: dotnet nuget push *.nupkg -k $nugetApiKey -s https://api.nuget.org/v3/index.json
+      run: dotnet nuget push /home/runner/work/EnumMapper/EnumMapper/*.nupkg -k $nugetApiKey -s https://api.nuget.org/v3/index.json
